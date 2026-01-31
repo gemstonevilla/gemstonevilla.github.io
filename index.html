@@ -402,7 +402,7 @@
       $('.form_home').on('submit', (event) => {
         event.preventDefault();
         // TODO do something here to show user that form is being submitted
-        const API_URL = new URL(event.target.action, 'https://api.gemstonevilla.com.vn');
+        const API_URL = new URL('/booking', 'https://api.gemstonevilla.com.vn');
         $(this).trigger("reset")
         console.debug(API_URL);
         fetch(API_URL, {
