@@ -658,7 +658,7 @@ textarea.form-control {
   height: 100%;
 }
 .slideshow-height .img-fluid {
-  height: 100%;
+  height: 420px;
 }
 
 .owl-stage {
@@ -668,7 +668,7 @@ textarea.form-control {
   /*height: 100vh;*/
   /*min-height: 700px;*/
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 
@@ -848,7 +848,7 @@ textarea.form-control {
 }
 
 .section {
-  padding: 7em 0;
+  padding: 5em 0;
   z-index: 1;
 }
 
@@ -928,6 +928,11 @@ textarea.form-control {
 .slider-section {
   position: relative;
   z-index: 1;
+}
+
+.slider-section:first-of-type {
+  padding-bottom: 0 !important;
+
 }
 
 .blog-post-entry {
@@ -1120,11 +1125,11 @@ textarea.form-control {
   height: 100%;
 }
 
-@media (min-width:768px) {
+/* @media (min-width:768px) {
   .owl-carousel.home-slider {
     height: 420px;
   }
-}
+} */
 
 .owl-carousel.home-slider .owl-nav {
   opacity: 0;
@@ -1151,6 +1156,27 @@ textarea.form-control {
   height: calc(100vh - 117px);
   min-height: 700px;
   position: relative;
+}
+
+/* Make the first gallery slider a fixed height and ensure images cover it */
+.section.slider-section:not(.blog-post-entry) .home-slider,
+.section.slider-section:not(.blog-post-entry) .home-slider .owl-stage-outer,
+.section.slider-section:not(.blog-post-entry) .home-slider .owl-item,
+.section.slider-section:not(.blog-post-entry) .home-slider .slider-item {
+  height: 600px;
+}
+
+.section.slider-section:not(.blog-post-entry) .home-slider .slider-item {
+  display: flex;
+  align-items: center;
+}
+
+.section.slider-section:not(.blog-post-entry) .home-slider .slider-item img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .owl-carousel.home-slider .slider-item .slider-text {
@@ -1198,6 +1224,9 @@ textarea.form-control {
   width: 100%;
 }
 
+.room-dots .owl-dots {
+  bottom: 50px !important;
+}
 .owl-carousel.home-slider .owl-dots .owl-dot {
   width: 10px;
   height: 10px;
@@ -1220,6 +1249,7 @@ textarea.form-control {
 .owl-carousel.major-caousel {
   -webkit-box-shadow: 0 10px 70px -10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 70px -10px rgba(0, 0, 0, 0.2);
+  overflow: visible;
 }
 
 .owl-carousel.major-caousel .owl-stage-outer {
@@ -1253,6 +1283,9 @@ textarea.form-control {
   -o-transition: .3s all ease;
   transition: .3s all ease;
   color: #495057;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .owl-carousel.major-caousel .owl-nav .owl-prev:hover,
@@ -1276,13 +1309,60 @@ textarea.form-control {
   right: -60px !important;
 }
 
-.owl-carousel.major-caousel .owl-dots {
-  bottom: 50px !important;
-}
-
 @media (max-width: 991.98px) {
   .owl-carousel.major-caousel .owl-dots {
     bottom: 10px !important;
+  }
+}
+
+/* Room slider: make items fill their carousel cell and crop images centrally */
+.room-slider {
+  box-shadow: none !important;
+}
+
+.room-slider .slider-room {
+  width: 100%;
+}
+
+.room-slider .slider-room .col-md-6 {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+.room-slider .slider-room img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* move dots down and make them black for room slider */
+.room-slider .owl-dots {
+  bottom: 10px !important;
+}
+
+.room-slider .owl-dots .owl-dot {
+  background: #000 !important;
+  border-color: #000 !important;
+}
+
+.room-slider .owl-dots .owl-dot.active {
+  background: #000 !important;
+  border-color: #000 !important;
+}
+
+/* Prevent blog-post-entry (second slider) from overlapping the previous section */
+.blog-post-entry.slider-section {
+  margin-top: 0 !important;
+  padding-top: 5rem !important;
+}
+
+@media (max-width: 991.98px) {
+  .blog-post-entry.slider-section {
+    margin-top: 0 !important;
+    padding-top: 4rem !important;
   }
 }
 
@@ -1615,6 +1695,7 @@ textarea.form-control {
   padding-right: 15px;
   padding-bottom: 10px;
   padding-left: 15px;
+  border-bottom: 1px solid #ccc;
 }
 
 .desktop_7 .text-blk.list.active {
@@ -1622,6 +1703,8 @@ textarea.form-control {
   padding-right: 15px;
   padding-bottom: 10px;
   padding-left: 15px;
+  color: #0066cc;
+  border-bottom: 2px solid #0066cc;
 }
 
 .desktop_7 .squareImg {
@@ -1889,6 +1972,18 @@ textarea.form-control {
   margin-left: 0px;
 }
 
+.desktop_7 .squareImg.six, .squareImg.seven, .squareImg.eight, .squareImg.nine, .squareImg.ten, .squareImg.eleven, .squareImg.twelve {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+
 @media (max-width: 1024px) {
   .desktop_7 .Container {
     width: 690px;
@@ -2016,6 +2111,44 @@ textarea.form-control {
     padding-bottom: 10px;
     padding-left: 10px;
   }
+}
+
+/* Room grid layout for rooms.html */
+.room-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.room-item .home-slider {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.room-item .home-slider .slider-item img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Ensure Owl carousel containers match image height so sliders are consistent */
+.room-item .home-slider,
+.room-item .home-slider .owl-stage-outer,
+.room-item .home-slider .owl-item,
+.room-item .home-slider .slider-item {
+  height: 420px !important;
+}
+
+.room-item .home-slider .img-fluid {
+  height: 420px !important;
+  object-fit: cover;
+}
+
+.room-item .text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 500px) {

@@ -39,8 +39,8 @@
     duration: 1000
   });
 
-	// home slider
-	$('.home-slider').owlCarousel({
+    // home slider - only the main/gallery one (not room slider)
+    $('.home-slider:not(.room-slider)').owlCarousel({
     loop:true,
     autoplay: true,
     margin:10,
@@ -56,7 +56,7 @@
         items:1,
         nav:false
       },
-      600:{
+      576:{
         items:1,
         nav:false
       },
@@ -65,7 +65,37 @@
         nav:true
       }
     }
-	});
+    });
+
+    // room slider (separate) - shows 2 items on medium+ screens
+    $('.room-slider').owlCarousel({
+    loop:true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin:10,
+    smartSpeed: 300,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    nav:true,
+    items: 2,
+    autoheight: true,
+    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
+    responsive:{
+      0:{
+        items:1,
+        nav:false
+      },
+      576:{
+        items:2,
+        nav:false
+      },
+      1000:{
+        items:2,
+        nav:true
+      }
+    }
+    });
 
 	// owl carousel
 	var majorCarousel = $('.js-carousel-1');
