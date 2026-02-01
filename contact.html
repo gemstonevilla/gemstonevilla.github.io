@@ -193,7 +193,7 @@
     <script src="src/js/main.js"></script><script>
     $(document).ready(function(){
         $('.form-contact').on('submit', (event) => {
-            const API_URL = new URL('/enquire', 'https://api.gemstonevilla.com.vn');
+            const API_URL = new URL('/enquiry', 'https://api.gemstonevilla.com.vn');
             event.preventDefault();
             // TODO do something here to show user that form is being submitted
             $(this).trigger("reset")
